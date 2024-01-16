@@ -27,7 +27,7 @@ html{
     width: 20vw;
     height: 60vh;
     border-radius: 0.5rem;
-    box-shadow: 0 0.2rem 3rem (0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(202, 127, 127, 0.731);
     background: rgb(77, 213, 228);
     position: relative;
     overflow: hidden;
