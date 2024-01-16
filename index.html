@@ -10,6 +10,35 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Salsa&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
     <link rel="stylesheet" href="style.css" />
     <title>Weather</title>
   </head>
@@ -20,7 +49,7 @@
       <div class="wave -three"></div>
 
       <div id="weathericon">
-        <i class="fas" style="color: orange"></i>
+        <i class="fa-solid fa-sun" style="color: orange"></i>
       </div>
 
       <div class="info">
@@ -28,41 +57,66 @@
           <i class="fa-solid fa-street-view"></i>Pune, IN
         </h2>
         <p id="date">MON | JAN 15 | 20:40</p>
-        <h1 class="temp">25.4 C</h1>
+        <h2 class="temp">25.4 C</h2>
         <h3 class="temp_min_max">Min - 18 C | Max - 32 C</h3>
       </div>
     </div>
 
     <script>
-        const curDate = document.getAnimations("date");
-        let weathericon = document.getElementById("weathericon");
+      const curDate = document.getElementById("date");
+      let weathericon = document.getElementById("weathericon");
 
-        const tempStatus = "Clouds";
+      const tempStatus = "Clouds";
 
-        const getCurrentDay = () => 
-        {
-            var weekday = new Array(7);
-            weekday[0] = "Sunday";
-            weekday[1] = "Monday";
-            weekday[2] = "Tuesday";
-            weekday[3] = "Wednesday";
-            weekday[4] = "Thursday";
-            weekday[5] = "Friday";
-            weekday[6] = "Saturday";
+      const getCurrentDay = () => {
+        var weekday = new Array(7);
+        weekday[0] = "Sun";
+        weekday[1] = "Mon";
+        weekday[2] = "Tue";
+        weekday[3] = "Wed";
+        weekday[4] = "Thu";
+        weekday[5] = "Fri";
+        weekday[6] = "Sat";
 
-            let currentTime = new Date();
-            console.log(weekday[currentTime.getDay()]);
+        let currentTime = new Date();
+        let day = weekday[currentTime.getDay()];
+        return day;
+      };
+      var months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "July",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      const getCurrentTime = () => {
+        var now = new Date();
+        var month = months[now.getMonth() + 1];
+        var date = now.getDate();
+
+        let hours = now.getHours();
+        let mins = now.getMinutes();
+        let period = "AM";
+
+        if (hours > 11) {
+          period = "PM";
+          if (hours > 12) hours -= 12;
+        }
+        if (mins < 10) {
+          mins = "0" + mins;
         }
 
-        const getCurrentTime = () =>{
-            var now = new Date();
-            var month = now.getMonth() + 1;
-            var day = now.getDate();
+        return `${month} ${date} | ${hours}:${mins} ${period}`;
+      };
 
-            console.log(month + "/" + day)
-        }
-
-        getCurrentTime();
+      curDate.innerHTML = getCurrentDay() + " | " + getCurrentTime();
     </script>
   </body>
 </html>
