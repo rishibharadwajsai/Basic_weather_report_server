@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="wave -one"></div>
+      <div class="wave -two"></div>
+      <div class="wave -three"></div>
+
+      <div id="weathericon">
+        <i class="fas" style="color: orange"></i>
+      </div>
+
+      <div class="info">
+        <h2 class="location">
+          <i class="fa-solid fa-street-view"></i>Pune, IN
+        </h2>
+        <p id="date">MON | JAN 15 | 20:40</p>
+        <h1 class="temp">25.4 C</h1>
+        <h3 class="temp_min_max">Min - 18 C | Max - 32 C</h3>
+      </div>
+    </div>
+
+    <script>
+        const curDate = document.getAnimations("date");
+        let weathericon = document.getElementById("weathericon");
+
+        const tempStatus = "Clouds";
+
+        const getCurrentDay = () => 
+        {
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+
+            let currentTime = new Date();
+            console.log(weekday[currentTime.getDay()]);
+        }
+        // getCurrentDay();
+
+        const getCurrentTime = () =>{
+            var now = new Date();
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            // var year = now.getFullYear();
+
+            console.log(month + "/" + day)
+        }
+
+        getCurrentTime();
+    </script>
+  </body>
+</html>
